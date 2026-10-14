@@ -5,13 +5,16 @@ from flask import Flask, render_template, request, redirect, url_for
 app = Flask(__name__)
 
 
+
 def get_db_connection():
     return mysql.connector.connect(
-        host="db",
+        host=os.environ.get("MYSQL_HOST", "db"),
+        port=int(os.environ.get("MYSQL_PORT", "3306")),
         user="root",
         password=os.environ["MYSQL_ROOT_PASSWORD"],
         database="student_db"
     )
+
 
 
 @app.route("/")

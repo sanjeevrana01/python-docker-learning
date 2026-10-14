@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: student-web
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: student-web
+  template:
+    metadata:
+      labels:
+        app: student-web
+    spec:
+      containers:
+        - name: flask
+          image: my-python-app:latest
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: student-db-secret
+                  key: MYSQL_ROOT_PASSWORD
+
+            - name: MYSQL_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: student-web-config
+                  key: MYSQL_HOST
+            - name: MYSQL_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: student-web-config
+                  key: MYSQL_PORT
+
+          ports:
+            - containerPort: 5000
