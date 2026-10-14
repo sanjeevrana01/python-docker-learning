@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+
+    <h1>Student Management</h1>
+<p><a href="/students/add">Add New Student</a></p>
+
+<form action="/students/search" method="GET">
+    <input
+        type="text"
+        name="q"
+        placeholder="Search by name or email"
+        required
+    >
+    <button type="submit">Search</button>
+</form>
+<p><a href="/students">Show All Students</a></p>
+    {% if students %}
+        <table border="1" cellpadding="10">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Course</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for student in students %}
+                    <tr>
+                        <td>{{ student.id }}</td>
+                        <td>{{ student.name }}</td>
+                        <td>{{ student.email }}</td>
+                        <td>{{ student.course or "Not assigned" }}</td>
+
+<td>
+    <a href="/students/edit/{{ student.id }}">Edit</a>
+</td>
+
+                         <td>
+        <form action="/students/delete/{{ student.id }}" method="POST">
+            <button type="submit">Delete</button>
+        </form>
+    </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No students found.</p>
+    {% endif %}
+
+    <p><a href="/">Back to Home</a></p>
+    </div>
+</body>
+</html>

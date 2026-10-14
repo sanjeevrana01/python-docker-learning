@@ -4,11 +4,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Python App</title>
+    <title>Student Management System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>Welcome to My Python App!</h1>
-    <p>Hello, {{ name }}!</p>
-    <a href="/about">About Me</a>
+    <header class="navbar">
+        <a class="brand" href="/">
+            🎓 Student Management
+        </a>
+
+        <nav>
+            <a class="active" href="/">Home</a>
+            <a href="/students">Students</a>
+            <a href="/about">About</a>
+        </nav>
+    </header>
+
+    <main class="home-container">
+        <section class="hero">
+            <div class="hero-content">
+                <span class="eyebrow">WELCOME TO YOUR DASHBOARD</span>
+
+                <h1>Student Management <span>System</span></h1>
+
+                <p>
+                    A simple and easy-to-use application to manage student
+                    information. Add, view, search and update student records
+                    in one place.
+                </p>
+
+                <div class="hero-actions">
+                    <a class="button-primary" href="/students">
+                        View Students →
+                    </a>
+
+                    <a class="button-secondary" href="/students/add">
+                        + Add New Student
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero-art" aria-hidden="true">
+                <div class="art-circle"></div>
+                <div class="art-card">
+                    <div class="art-cap">🎓</div>
+                    <div class="art-book">📚</div>
+                    <div class="art-person">👨‍🎓</div>
+                    <div class="art-line"></div>
+                    <div class="art-line short"></div>
+                    <div class="art-line"></div>
+                </div>
+                <div class="floating-badge">✦ Learn · Grow · Achieve</div>
+            </div>
+        </section>
+
+        <section class="feature-grid">
+            <a class="feature-card" href="/students">
+                <div class="feature-icon blue">♟</div>
+                <h2>Manage Students</h2>
+                <p>Add, view, update and delete student records.</p>
+                <span class="feature-link">Explore students →</span>
+            </a>
+
+            <a class="feature-card" href="/students">
+                <div class="feature-icon green">⌕</div>
+                <h2>Search Students</h2>
+                <p>Quickly find students by their name or email.</p>
+                <span class="feature-link">Find a student →</span>
+            </a>
+
+            <a class="feature-card" href="/students/add">
+                <div class="feature-icon orange">＋</div>
+                <h2>Add New Student</h2>
+                <p>Register a student and save their details.</p>
+                <span class="feature-link">Add a student →</span>
+            </a>
+        </section>
+
+        <footer class="home-footer">
+            <div>
+                <strong>Student Management System</strong>
+                <p>Built with Python, Flask, MySQL and Docker.</p>
+            </div>
+            <span>Learning today, building for tomorrow.</span>
+        </footer>
+    </main>
 </body>
 </html>

@@ -1,0 +1,21 @@
+services:
+  web:
+    build: .
+    container_name: python-compose-app
+    ports:
+      - "8081:5000"
+    env_file:
+      - .env  
+  db:
+    image: mysql:8.0
+    container_name: student-mysql
+    restart: unless-stopped
+    env_file:
+      - .env
+    ports:
+      - "127.0.0.1:3307:3306"
+    volumes:
+      - student-mysql-data:/var/lib/mysql
+
+volumes:
+  student-mysql-data:

@@ -4,11 +4,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Me</title>
+    <title>About | Student Management</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>About Me</h1>
-    <p>I am learning Python, Flask, Docker, Kubernetes and PySpark.</p>
-    <a href="/">Back to Home</a>
+    <header class="navbar">
+        <a class="brand" href="/">🎓 Student Management</a>
+
+        <nav>
+            <a href="/">Home</a>
+            <a href="/students">Students</a>
+            <a class="active" href="/about">About</a>
+        </nav>
+    </header>
+
+    <main class="about-container">
+        <section class="about-hero">
+            <span class="eyebrow">ABOUT THE PROJECT</span>
+            <h1>Simple Student Management.<br><span>Powerful Learning.</span></h1>
+            <p>
+                A practical web application built to manage student records
+                while learning modern application development with Python,
+                Flask, MySQL and Docker.
+            </p>
+            <a href="/students" class="button-primary">Explore Students →</a>
+        </section>
+
+        <section class="about-section">
+            <h2>What This Application Does</h2>
+            <p class="section-description">
+                Everything you need to manage student information in one place.
+            </p>
+
+            <div class="about-grid">
+                <article class="about-card">
+                    <div class="feature-icon blue">♟</div>
+                    <h3>Student Records</h3>
+                    <p>Add, view, edit and delete student information with ease.</p>
+                </article>
+
+                <article class="about-card">
+                    <div class="feature-icon green">⌕</div>
+                    <h3>Quick Search</h3>
+                    <p>Find students by name or email using the search feature.</p>
+                </article>
+
+                <article class="about-card">
+                    <div class="feature-icon orange">⚙</div>
+                    <h3>Modern Technology</h3>
+                    <p>Built with Flask, MySQL and Docker Compose.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="technology-section">
+            <h2>Technologies Used</h2>
+            <div class="technology-list">
+                <span>Python</span>
+                <span>Flask</span>
+                <span>MySQL</span>
+                <span>HTML &amp; CSS</span>
+                <span>Docker</span>
+                <span>Docker Compose</span>
+            </div>
+        </section>
+
+        <footer class="home-footer">
+            <div>
+                <strong>Student Management System</strong>
+                <p>A hands-on project for learning full-stack development.</p>
+            </div>
+            <a href="/">← Back to Home</a>
+        </footer>
+    </main>
 </body>
 </html>
