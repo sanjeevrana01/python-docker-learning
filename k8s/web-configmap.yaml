@@ -3,5 +3,5 @@ kind: ConfigMap
 metadata:
   name: student-web-config
 data:
-  MYSQL_HOST: "host.docker.internal"
-  MYSQL_PORT: "3307"
+  MYSQL_HOST: "student-mysql-service"
+  MYSQL_PORT: "3306"
