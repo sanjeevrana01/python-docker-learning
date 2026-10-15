@@ -16,6 +16,9 @@ def get_db_connection():
     )
 
 
+@app.route("/health")
+def health():
+    return {"status": "healthy", "version": "v3"}, 200
 
 @app.route("/")
 def home():
